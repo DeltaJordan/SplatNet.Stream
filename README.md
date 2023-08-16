@@ -2,6 +2,8 @@
 
 An application mainly used to document past battles from SplatNet 3. Note that if you wish to export SplatNet 3 stats to stat.ink, you are looking for this instead: https://github.com/frozenpandaman/s3s
 
+## [Download Latest Version Here](https://github.com/DeltaJordan/SplatNet.Stream/releases/latest)
+
 ## Features
 - Displays the following information about the latest battle:
   - Map/Mode
