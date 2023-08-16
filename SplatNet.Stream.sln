@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SplatNet.Stream", "SplatNet.Stream\SplatNet.Stream.csproj", "{3F6A1D14-23FB-44EC-9546-5BE6F9B55346}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SplatNet.CodeStyle.Analyzers", "SplatNet.CodeStyle.Analyzers\SplatNet.CodeStyle.Analyzers.csproj", "{17219A15-E42C-44E3-BFE2-9CE1DE32BDCE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C52DE575-D664-458C-83AC-C62ABC77C68F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F6A1D14-23FB-44EC-9546-5BE6F9B55346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F6A1D14-23FB-44EC-9546-5BE6F9B55346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F6A1D14-23FB-44EC-9546-5BE6F9B55346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F6A1D14-23FB-44EC-9546-5BE6F9B55346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17219A15-E42C-44E3-BFE2-9CE1DE32BDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17219A15-E42C-44E3-BFE2-9CE1DE32BDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17219A15-E42C-44E3-BFE2-9CE1DE32BDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17219A15-E42C-44E3-BFE2-9CE1DE32BDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41204AFC-43DB-4ADA-BAD7-EE9AD51D7482}
+	EndGlobalSection
+EndGlobal

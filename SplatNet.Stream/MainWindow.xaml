@@ -1,0 +1,204 @@
+﻿<Window x:Class="SplatNet.Stream.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SplatNet.Stream"
+        xmlns:converter="clr-namespace:SplatNet.Stream.Converters"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Normal"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="SplatNet 3 Stat Display" Width="800" SizeToContent="Height">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.Resources>
+            <converter:WeaponToImageConverter x:Key="WeaponToImageConverter"/>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!-- Labels -->
+        <Label Grid.Row="0" Grid.Column="1" Content="Player" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="2" Content="Weapon" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="3" Content="Kills" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="4" Content="Assists" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="5" Content="Deaths" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="6" Content="+/-" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="7" Content="Paint" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="8" Content="Specials" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="9" Content="Match Time" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Our Team" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="Enemy Team" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <!-- Team 1 Players -->
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="{Binding Path=Match.MyTeam.Players[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Incognito" Visibility="{Binding Path=Match.MyTeam.Players[0].IsAlias, Converter={StaticResource BoolToVis}}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="{Binding Path=Match.MyTeam.Players[1].Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Incognito" Visibility="{Binding Path=Match.MyTeam.Players[1].IsAlias, Converter={StaticResource BoolToVis}}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="{Binding Path=Match.MyTeam.Players[2].Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Incognito" Visibility="{Binding Path=Match.MyTeam.Players[2].IsAlias, Converter={StaticResource BoolToVis}}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="{Binding Path=Match.MyTeam.Players[3].Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Incognito" Visibility="{Binding Path=Match.MyTeam.Players[3].IsAlias, Converter={StaticResource BoolToVis}}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <!-- Team 2 Players -->
+        <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="{Binding Path=Match.EnemyTeam.Players[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Incognito" Visibility="{Binding Path=Match.EnemyTeam.Players[0].IsAlias, Converter={StaticResource BoolToVis}}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="{Binding Path=Match.EnemyTeam.Players[1].Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Incognito" Visibility="{Binding Path=Match.EnemyTeam.Players[1].IsAlias, Converter={StaticResource BoolToVis}}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="{Binding Path=Match.EnemyTeam.Players[2].Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Incognito" Visibility="{Binding Path=Match.EnemyTeam.Players[2].IsAlias, Converter={StaticResource BoolToVis}}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="11" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="{Binding Path=Match.EnemyTeam.Players[3].Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="Incognito" Visibility="{Binding Path=Match.EnemyTeam.Players[3].IsAlias, Converter={StaticResource BoolToVis}}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
+        <!-- Weapons -->
+        <Image 
+            Source="{Binding Path=Match.MyTeam.Players[0].WeaponUrl,Converter={StaticResource WeaponToImageConverter},Mode=OneWay}" 
+            Grid.Row="2" Grid.Column="2" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image 
+            Source="{Binding Path=Match.MyTeam.Players[1].WeaponUrl,Converter={StaticResource WeaponToImageConverter},Mode=OneWay}" 
+            Grid.Row="3" Grid.Column="2" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image 
+            Source="{Binding Path=Match.MyTeam.Players[2].WeaponUrl,Converter={StaticResource WeaponToImageConverter},Mode=OneWay}" 
+            Grid.Row="4" Grid.Column="2" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image 
+            Source="{Binding Path=Match.MyTeam.Players[3].WeaponUrl,Converter={StaticResource WeaponToImageConverter},Mode=OneWay}" 
+            Grid.Row="5" Grid.Column="2" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image 
+            Source="{Binding Path=Match.EnemyTeam.Players[0].WeaponUrl,Converter={StaticResource WeaponToImageConverter},Mode=OneWay}" 
+            Grid.Row="8" Grid.Column="2" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image 
+            Source="{Binding Path=Match.EnemyTeam.Players[1].WeaponUrl,Converter={StaticResource WeaponToImageConverter},Mode=OneWay}" 
+            Grid.Row="9" Grid.Column="2" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image 
+            Source="{Binding Path=Match.EnemyTeam.Players[2].WeaponUrl,Converter={StaticResource WeaponToImageConverter},Mode=OneWay}" 
+            Grid.Row="10" Grid.Column="2" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <Image 
+            Source="{Binding Path=Match.EnemyTeam.Players[3].WeaponUrl,Converter={StaticResource WeaponToImageConverter},Mode=OneWay}" 
+            Grid.Row="11" Grid.Column="2" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <!-- Kills -->
+        <Label Grid.Row="1" Grid.Column="3" Content="{Binding Path=Match.MyTeam.TotalKills}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="2" Grid.Column="3" Content="{Binding Path=Match.MyTeam.Players[0].Kills}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="3" Content="{Binding Path=Match.MyTeam.Players[1].Kills}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="3" Content="{Binding Path=Match.MyTeam.Players[2].Kills}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="3" Content="{Binding Path=Match.MyTeam.Players[3].Kills}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="3" Content="{Binding Path=Match.EnemyTeam.TotalKills}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="8" Grid.Column="3" Content="{Binding Path=Match.EnemyTeam.Players[0].Kills}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="3" Content="{Binding Path=Match.EnemyTeam.Players[1].Kills}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="3" Content="{Binding Path=Match.EnemyTeam.Players[2].Kills}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="3" Content="{Binding Path=Match.EnemyTeam.Players[3].Kills}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- Assists -->
+        <Label Grid.Row="1" Grid.Column="4" Content="{Binding Path=Match.MyTeam.TotalAssists}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="2" Grid.Column="4" Content="{Binding Path=Match.MyTeam.Players[0].Assists}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="4" Content="{Binding Path=Match.MyTeam.Players[1].Assists}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="4" Content="{Binding Path=Match.MyTeam.Players[2].Assists}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="4" Content="{Binding Path=Match.MyTeam.Players[3].Assists}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="4" Content="{Binding Path=Match.EnemyTeam.TotalAssists}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="8" Grid.Column="4" Content="{Binding Path=Match.EnemyTeam.Players[0].Assists}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="4" Content="{Binding Path=Match.EnemyTeam.Players[1].Assists}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="4" Content="{Binding Path=Match.EnemyTeam.Players[2].Assists}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="4" Content="{Binding Path=Match.EnemyTeam.Players[3].Assists}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- Deaths -->
+        <Label Grid.Row="1" Grid.Column="5" Content="{Binding Path=Match.MyTeam.TotalDeaths}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="2" Grid.Column="5" Content="{Binding Path=Match.MyTeam.Players[0].Deaths}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="5" Content="{Binding Path=Match.MyTeam.Players[1].Deaths}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="5" Content="{Binding Path=Match.MyTeam.Players[2].Deaths}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="5" Content="{Binding Path=Match.MyTeam.Players[3].Deaths}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="5" Content="{Binding Path=Match.EnemyTeam.TotalDeaths}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="8" Grid.Column="5" Content="{Binding Path=Match.EnemyTeam.Players[0].Deaths}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="5" Content="{Binding Path=Match.EnemyTeam.Players[1].Deaths}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="5" Content="{Binding Path=Match.EnemyTeam.Players[2].Deaths}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="5" Content="{Binding Path=Match.EnemyTeam.Players[3].Deaths}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- K/D -->
+        <Label Grid.Row="1" Grid.Column="6" Content="{Binding Path=Match.MyTeam.TotalKD}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="2" Grid.Column="6" Content="{Binding Path=Match.MyTeam.Players[0].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="6" Content="{Binding Path=Match.MyTeam.Players[1].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="6" Content="{Binding Path=Match.MyTeam.Players[2].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="6" Content="{Binding Path=Match.MyTeam.Players[3].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="6" Content="{Binding Path=Match.EnemyTeam.TotalKD}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="8" Grid.Column="6" Content="{Binding Path=Match.EnemyTeam.Players[0].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="6" Content="{Binding Path=Match.EnemyTeam.Players[1].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="6" Content="{Binding Path=Match.EnemyTeam.Players[2].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="6" Content="{Binding Path=Match.EnemyTeam.Players[3].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- Paint -->
+        <Label Grid.Row="1" Grid.Column="7" Content="{Binding Path=Match.MyTeam.TotalPaint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="2" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[0].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[1].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[2].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[3].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.TotalPaint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="8" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[0].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[1].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[2].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[3].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- Specials -->
+        <Label Grid.Row="1" Grid.Column="8" Content="{Binding Path=Match.MyTeam.TotalSpecials}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="2" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[0].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[1].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[2].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[3].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.TotalSpecials}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="8" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[0].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[1].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[2].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[3].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- Match Time -->
+        <Label Grid.Row="1" Grid.Column="9" Content="{Binding Path=Match.Duration}" ContentStringFormat="{}{0:mm':'ss}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <!-- Ink Colors -->
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="{Binding Path=Match.MyTeam.InkColor}" Width="16" Height="16" HorizontalAlignment="Left" Margin="5,0" RadiusX="5" RadiusY="5"/>
+        <Rectangle Grid.Row="7" Grid.Column="1" Fill="{Binding Path=Match.EnemyTeam.InkColor}" Width="16" Height="16" HorizontalAlignment="Left" Margin="5,0" RadiusX="5" RadiusY="5"/>
+
+        <!--Map/Mode-->
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Text="{Binding Path=Match.Map}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Path=Match.ModeShortHand}" Padding="5,0,0,0" FontWeight="Bold"/>
+        </StackPanel>
+        <!--Scores-->
+        <TextBlock Grid.Row="2" Text="{Binding Path=Match.MyTeam.Judgement}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Text="{Binding Path=Match.MyTeam.Score}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="8" Text="{Binding Path=Match.EnemyTeam.Judgement}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="9" Text="{Binding Path=Match.EnemyTeam.Score}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>
