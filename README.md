@@ -11,7 +11,7 @@ An application mainly used to document past battles from SplatNet 3. Note that i
   - Display Names (Shows a symbol if a user is using an alias in Private Battles)
   - Game Result and Score (0 - 100 indicates a KO)
   - Weapon of each player
-  - Stats for both the entire team and each individual member, including: Kills, Assists, Deaths, Positive/Negative Contribution (Kills - Deaths), Paint, and Specials
+  - Stats for both the entire team and each individual member, including: Kills, Assists, Deaths, Positive/Negative Contribution (Kills - Deaths), Kill Participation ((Kills + Assists) / Total Team Kills), Paint, and Specials
   - Match Time
 - Material UI
 - Ability to export past matches as CSV
