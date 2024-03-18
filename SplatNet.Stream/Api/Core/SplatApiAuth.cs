@@ -256,7 +256,7 @@ namespace SplatNet.Stream.Api.Core
 					{ "Accept-Encoding", "gzip" },
 					{ "Accept", "application/json" },
 					{ "Connection", "Keep-Alive" },
-					{ "User-Agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2)" }
+					{ "User-Agent", "Dalvik/2.1.0 (Linux; U; Android 14; Pixel 7a Build/UQ1A.240105.004)" }
 				},
 				Content = new StringContent(JsonConvert.SerializeObject(new
 				{
@@ -324,7 +324,7 @@ namespace SplatNet.Stream.Api.Core
 				},
 				Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json"),
 			};
-			request.Headers.TryAddWithoutValidation("User-Agent", $"com.nintendo.znca/{nsoVersion}(Android/7.1.2)");
+			request.Headers.TryAddWithoutValidation("User-Agent", $"com.nintendo.znca/{nsoVersion}(Android/14)");
 
 
 			response = await SplatApiShared.HttpClient.SendAsync(request).SafeAsync();
@@ -367,7 +367,7 @@ namespace SplatNet.Stream.Api.Core
 				},
 					Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json"),
 				};
-				request.Headers.TryAddWithoutValidation("User-Agent", $"com.nintendo.znca/{nsoVersion}(Android/7.1.2)");
+				request.Headers.TryAddWithoutValidation("User-Agent", $"com.nintendo.znca/{nsoVersion}(Android/14)");
 
 				response = await SplatApiShared.HttpClient.SendAsync(request).SafeAsync();
 				splatoonJToken = JToken.Parse(await response.Content.ReadAsStringAsync().SafeAsync());
@@ -402,7 +402,7 @@ namespace SplatNet.Stream.Api.Core
 				},
 				Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json")
 			};
-			request.Headers.TryAddWithoutValidation("User-Agent", $"com.nintendo.znca/{nsoVersion}(Android/7.1.2)");
+			request.Headers.TryAddWithoutValidation("User-Agent", $"com.nintendo.znca/{nsoVersion}(Android/14)");
 
 			response = await SplatApiShared.HttpClient.SendAsync(request).SafeAsync();
 			JToken webServiceJson = JToken.Parse(await response.Content.ReadAsStringAsync().SafeAsync());
@@ -443,7 +443,7 @@ namespace SplatNet.Stream.Api.Core
 					},
 					Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json")
 				};
-				request.Headers.TryAddWithoutValidation("User-Agent", $"com.nintendo.znca/{nsoVersion}(Android/7.1.2)");
+				request.Headers.TryAddWithoutValidation("User-Agent", $"com.nintendo.znca/{nsoVersion}(Android/14)");
 
 				response = await SplatApiShared.HttpClient.SendAsync(request).SafeAsync();
 				webServiceJson = JToken.Parse(await response.Content.ReadAsStringAsync().SafeAsync());

@@ -19,13 +19,13 @@ namespace SplatNet.Stream.Api.Core
 	{
 		public const string SPLATNET3_URL = "https://api.lp1.av5ja.srv.nintendo.net";
 		public const string GRAPHQL_URL = $"{SPLATNET3_URL}/api/graphql";
-		public const string NSO_VERSION_FALLBACK = "2.7.0";
-		public const string WEB_VIEW_VERSION_FALLBACK = "6.0.0-1249ecb9"; // fallback for current splatnet 3 ver
+		public const string NSO_VERSION_FALLBACK = "2.9.0";
+		public const string WEB_VIEW_VERSION_FALLBACK = "6.0.0-eb33aadc"; // fallback for current splatnet 3 ver
 		public const string S3S_NAMESPACE = "b3a2dbf5-2c09-4792-b78c-00b548b70aeb";
 		public const string SALMON_NAMESPACE = "f1911910-605e-11ed-a622-7085c2057a9d";
 		public const string F_GEN_URL = "https://api.imink.app/f";
-		public const string A_VERSION = "0.5.6";
-		public const string USER_AGENT = "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Mobile Safari/537.36";
+		public const string A_VERSION = "0.6.3";
+		public const string USER_AGENT = "Mozilla/5.0 (Linux; Android 14; Pixel 7a) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36";
 
 		public static readonly IReadOnlyDictionary<string, string> TranslateRid = new Dictionary<string, string>
 		{
