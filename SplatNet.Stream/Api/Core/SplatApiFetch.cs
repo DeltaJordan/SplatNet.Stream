@@ -26,7 +26,7 @@ namespace SplatNet.Stream.Api.Core
 			{
 				RequestUri = new Uri(SplatApiShared.GRAPHQL_URL),
 				Method = HttpMethod.Post,
-				Content = SplatApiShared.GenGraphQLBody(sha)
+				Content = SplatApiShared.GenGraphQLBody(sha, "naCountry", SplatApiShared.Credentials.Country)
 			};
 			
 			await SplatApiShared.HeadbuttAsync(request).SafeAsync();
