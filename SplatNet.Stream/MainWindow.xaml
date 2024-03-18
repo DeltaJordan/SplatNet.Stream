@@ -31,6 +31,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -54,9 +55,10 @@
         <Label Grid.Row="0" Grid.Column="4" Content="Assists" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Grid.Row="0" Grid.Column="5" Content="Deaths" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Grid.Row="0" Grid.Column="6" Content="+/-" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Grid.Row="0" Grid.Column="7" Content="Paint" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Grid.Row="0" Grid.Column="8" Content="Specials" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Grid.Row="0" Grid.Column="9" Content="Match Time" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="7" Content="Kill Part." FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="8" Content="Paint" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="9" Content="Specials" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="10" Content="Match Time" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Grid.Row="1" Grid.Column="0" Content="Our Team" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Grid.Row="7" Grid.Column="0" Content="Enemy Team" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <!-- Team 1 Players -->
@@ -162,30 +164,39 @@
         <Label Grid.Row="9" Grid.Column="6" Content="{Binding Path=Match.EnemyTeam.Players[1].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Label Grid.Row="10" Grid.Column="6" Content="{Binding Path=Match.EnemyTeam.Players[2].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Label Grid.Row="11" Grid.Column="6" Content="{Binding Path=Match.EnemyTeam.Players[3].KD}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- Kill Participation -->
+        <Label Grid.Row="2" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[0].KillParticipation}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[1].KillParticipation}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[2].KillParticipation}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[3].KillParticipation}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="8" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[0].KillParticipation}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[1].KillParticipation}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[2].KillParticipation}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[3].KillParticipation}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <!-- Paint -->
-        <Label Grid.Row="1" Grid.Column="7" Content="{Binding Path=Match.MyTeam.TotalPaint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-        <Label Grid.Row="2" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[0].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="3" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[1].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="4" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[2].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="5" Grid.Column="7" Content="{Binding Path=Match.MyTeam.Players[3].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="7" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.TotalPaint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-        <Label Grid.Row="8" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[0].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="9" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[1].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="10" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[2].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="11" Grid.Column="7" Content="{Binding Path=Match.EnemyTeam.Players[3].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="8" Content="{Binding Path=Match.MyTeam.TotalPaint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="2" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[0].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[1].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[2].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[3].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.TotalPaint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="8" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[0].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[1].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[2].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[3].Paint}" ContentStringFormat="{}{0}p" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <!-- Specials -->
-        <Label Grid.Row="1" Grid.Column="8" Content="{Binding Path=Match.MyTeam.TotalSpecials}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-        <Label Grid.Row="2" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[0].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="3" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[1].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="4" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[2].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="5" Grid.Column="8" Content="{Binding Path=Match.MyTeam.Players[3].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="7" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.TotalSpecials}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-        <Label Grid.Row="8" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[0].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="9" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[1].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="10" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[2].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="11" Grid.Column="8" Content="{Binding Path=Match.EnemyTeam.Players[3].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="9" Content="{Binding Path=Match.MyTeam.TotalSpecials}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="2" Grid.Column="9" Content="{Binding Path=Match.MyTeam.Players[0].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="9" Content="{Binding Path=Match.MyTeam.Players[1].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="9" Content="{Binding Path=Match.MyTeam.Players[2].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="9" Content="{Binding Path=Match.MyTeam.Players[3].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="9" Content="{Binding Path=Match.EnemyTeam.TotalSpecials}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="8" Grid.Column="9" Content="{Binding Path=Match.EnemyTeam.Players[0].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="9" Content="{Binding Path=Match.EnemyTeam.Players[1].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="9" Content="{Binding Path=Match.EnemyTeam.Players[2].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Grid.Row="11" Grid.Column="9" Content="{Binding Path=Match.EnemyTeam.Players[3].Specials}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <!-- Match Time -->
-        <Label Grid.Row="1" Grid.Column="9" Content="{Binding Path=Match.Duration}" ContentStringFormat="{}{0:mm':'ss}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Row="1" Grid.Column="10" Content="{Binding Path=Match.Duration}" ContentStringFormat="{}{0:mm':'ss}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
         <!-- Ink Colors -->
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="{Binding Path=Match.MyTeam.InkColor}" Width="16" Height="16" HorizontalAlignment="Left" Margin="5,0" RadiusX="5" RadiusY="5"/>
         <Rectangle Grid.Row="7" Grid.Column="1" Fill="{Binding Path=Match.EnemyTeam.InkColor}" Width="16" Height="16" HorizontalAlignment="Left" Margin="5,0" RadiusX="5" RadiusY="5"/>

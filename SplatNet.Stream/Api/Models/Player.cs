@@ -17,7 +17,10 @@ namespace SplatNet.Stream.Api.Models
         public int Assists { get; set; }
         public int Deaths { get; set; }
         public int KD => this.Kills - this.Deaths;
+		public string KillParticipation => this.Team == null ? "" : $"{((this.Kills + this.Deaths) / this.Team.TotalKills):P}";
         public int Paint { get; set; }
         public int Specials { get; set; }
+
+		public Team Team { get; set; }
     }
 }

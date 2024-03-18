@@ -82,6 +82,8 @@ namespace SplatNet.Stream.Api.Models
 				}
 
 				result.MyTeam.Players[i++] = player;
+
+				player.Team = result.MyTeam;
 			}
 
 			JToken enemyTeamColorToken = historyDetail["otherTeams"][0]["color"];
@@ -123,6 +125,8 @@ namespace SplatNet.Stream.Api.Models
 				}
 
 				result.EnemyTeam.Players[i++] = player;
+
+				player.Team = result.EnemyTeam;
 			}
 
 			return result;
