@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SplatNet.Stream.Windows"
+        xmlns:usercontrols="clr-namespace:SplatNet.Stream.Windows.Controls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -12,12 +12,17 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         mc:Ignorable="d"
         Title="Dashboard" SizeToContent="WidthAndHeight">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="32" ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}"/>
+    </WindowChrome.WindowChrome>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="10">
+        <usercontrols:CustomWindowHeader/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
             <Button x:Name="btnRefresh" Click="Refresh_Click" IsEnabled="False" Foreground="{DynamicResource MaterialDesignBody}">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Refresh" VerticalAlignment="Center"/>
@@ -27,7 +32,7 @@
             <materialDesign:PackIcon x:Name="icoStatus" Foreground="Purple" Kind="Circle" VerticalAlignment="Center" Margin="10,0,0,0"/>
             <Label x:Name="lblStatus" Content="Initial run. This may take a while..." VerticalAlignment="Center"/>
         </StackPanel>
-        <Button Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="Export_Click" Foreground="{DynamicResource MaterialDesignBody}">
+        <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Click="Export_Click" Foreground="{DynamicResource MaterialDesignBody}">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Export"/>
                 <TextBlock Text="Export..." Margin="5,0,0,0"/>

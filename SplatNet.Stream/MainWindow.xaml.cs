@@ -48,18 +48,11 @@ namespace SplatNet.Stream
 			FetchOldIds();
 			this.GetLatestBattle();
 			new Dashboard(this).Show();
-
-			this.Closed += this.MainWindow_Closed;
 		}
 
 		public void UpdateBattle()
 		{
 			this.GetLatestBattle();
-		}
-
-		private void MainWindow_Closed(object sender, EventArgs e)
-		{
-			Environment.Exit(0);
 		}
 
 		private void GetLatestBattle()

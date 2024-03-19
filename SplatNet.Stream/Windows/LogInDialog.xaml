@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SplatNet.Stream.Windows"
+        xmlns:usercontrols="clr-namespace:SplatNet.Stream.Windows.Controls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -12,8 +12,16 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         mc:Ignorable="d"
         Title="Log In to SplatNet 3" SizeToContent="WidthAndHeight">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="32" ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}"/>
+    </WindowChrome.WindowChrome>
     <Grid>
-        <StackPanel Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <usercontrols:CustomWindowHeader/>
+        <StackPanel Grid.Row="1" Margin="10">
             <Label Content="Navigate to this URL in your browser:" HorizontalAlignment="Center"/>
             <TextBlock HorizontalAlignment="Center">
                 <Hyperlink Name="linkLogin" NavigateUri="http://www.google.com" RequestNavigate="LinkLogin_RequestNavigate">
