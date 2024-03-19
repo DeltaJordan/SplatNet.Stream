@@ -194,7 +194,7 @@ namespace SplatNet.Stream.Api.Core
 
 		public static async Task<string> LogInAsync(string accountUrl, string authCodeVerifier)
 		{
-			Regex regex = new(@"de=(.*)&");
+			Regex regex = new(@"de=(.*)&st");
 			string sessionTokenCode = regex.Match(accountUrl).Groups[1].Value;
 			return await GetSessionTokenAsync(sessionTokenCode, authCodeVerifier).SafeAsync();
 		}
