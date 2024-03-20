@@ -21,7 +21,7 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <controls:CustomWindowHeader/>
+        <controls:CustomWindowHeader ShouldCloseExit="False"/>
         <TreeView Grid.Row="1" x:Name="trvExport" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding}">
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type controls:CheckableTreeItem}" ItemsSource="{Binding Items}">

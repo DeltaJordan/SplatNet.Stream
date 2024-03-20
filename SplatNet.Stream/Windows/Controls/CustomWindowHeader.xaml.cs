@@ -20,6 +20,21 @@ namespace SplatNet.Stream.Windows.Controls
 	/// </summary>
 	public partial class CustomWindowHeader : UserControl
 	{
+		public bool ShouldCloseExit
+		{
+			get => (bool)this.GetValue(ShouldClosingExitProperty);
+			set => this.SetValue(ShouldClosingExitProperty, value);
+		}
+
+		public static readonly DependencyProperty ShouldClosingExitProperty =
+			DependencyProperty.Register
+			(
+				"ShouldCloseExit",
+				typeof (bool),
+				typeof (CustomWindowHeader),
+				new PropertyMetadata (true)
+			);
+
 		public CustomWindowHeader()
 		{
 			this.InitializeComponent();
@@ -36,7 +51,15 @@ namespace SplatNet.Stream.Windows.Controls
 
 		private void Close_Click(object sender, RoutedEventArgs e)
 		{
-			Environment.Exit(0);
+			if (this.ShouldCloseExit)
+			{
+				Environment.Exit(0);
+			}
+			else
+			{
+				Window window = Window.GetWindow(this);
+				window?.Close();
+			}
 		}
 	}
 }
